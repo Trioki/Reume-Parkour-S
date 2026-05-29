@@ -20,18 +20,22 @@ body, html {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: #111; /* Если картинка долго грузится, будет темный фон */
+    width: 100vw;   /* Растягиваем строго на всю ширину окна */
+    height: 100vh;  /* Растягиваем строго на всю высоту окна */
+    z-index: -100;  /* Прячем глубоко на задний план, под текст */
+    background-color: #111; 
+    margin: 0;
+    padding: 0;
 }
 
-/* Настройки самой картинки внутри контейнера */
+/* Настройки самой картинки */
 .background-overlay img {
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Картинка заполнит экран без искажения пропорций */
-    filter: brightness(0.35); /* Затемнение фона, чтобы текст читался идеально */
+    object-fit: cover;
+    /* Временно убираем фильтр brightness, чтобы проверить, появится ли картинка */
+    filter: none !important; 
 }
 
 /* Центральный блок с эффектом размытия (Glassmorphism) */
