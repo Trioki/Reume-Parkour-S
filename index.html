@@ -39,8 +39,11 @@
     <script>
         function GameDetails(servername, serverurl, mapname, maxplayers, steamid, gamemode) {
             document.getElementById('server-name').innerText = servername;
-            document.getElementById('map-name').innerText = "Карта: " + mapname;
-            document.getElementById('player-count').innerText = "Онлайн: 0/" + maxplayers;
+			
+			var activeColor = "#4449a8";
+			
+            document.getElementById('map-name').innerHTML = 'Карта: <span style="color:' + activeColor + ' !important;">' + mapname + '</span>';
+            document.getElementById('player-count').innerHTML = 'Онлайн: <span style="color:' + activeColor + ' !important;">0/' + maxplayers + '</span>';
         }
 
         function SetStatusChanged(status) {
