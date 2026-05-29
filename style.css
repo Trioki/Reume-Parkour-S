@@ -32,13 +32,20 @@ body, html {
 .loading-card {
     position: relative;
     width: 800px;         
-    min-height: 480px;
+    height: 450px;        
+    
+    /* Твой новый полупрозрачный фон (последняя цифра 0.65 — это прозрачность) */
     background: rgba(27, 29, 38, 0.65);  
+    
+    /* Эффект размытия заднего плана */
     backdrop-filter: blur(12px);  
-    -webkit-backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); /* Поддержка для старых версий браузеров */
+    
+    /* Тонкая, едва заметная рамка, подчеркивающая эффект стекла (как в оригинальном шаблоне) */
     border: 1px solid rgba(255, 255, 255, 0.05); 
+
     border-radius: 24px;  
-    padding: 50px 50px 110px 50px;
+    padding: 50px 50px 0 50px;
     text-align: center;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7); 
     z-index: 2;
@@ -50,11 +57,12 @@ body, html {
 
 /* Название сервера */
 #server-name {
-    font-size: 48px;
+    font-size: 52px;
     font-weight: 900;
-    color: #4d5ae5;       
+    color: #4449a8;       /* Фирменный неоново-синий */
+    text-transform: lowercase;
     letter-spacing: -1px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 /* Описание внутри карточки */
@@ -62,7 +70,7 @@ body, html {
     font-size: 16px;
     font-weight: 600;
     line-height: 1.5;
-    color: #ffffff;
+    color: #f0f1f5;
     max-width: 650px;
     margin-bottom: 30px;
 }
@@ -73,7 +81,7 @@ body, html {
     gap: 140px;
     font-size: 18px;
     font-weight: 700;
-    color: #565d6d;       /* Приглушенный серый */
+    color: #667085;       /* Приглушенный серый */
     margin-bottom: 35px;
 }
 
@@ -83,7 +91,7 @@ body, html {
     width: 40px;
     height: 40px;
     border: 3px solid rgba(255, 255, 255, 0.05); /* Прозрачная основа круга */
-    border-top-color: #4d5ae5; /* Фирменный синий цвет бегущей линии */
+    border-top-color: #4449a8; /* Фирменный синий цвет бегущей линии */
     border-radius: 50%;
     margin-bottom: 20px; /* Отступ до текста loading-status */
     animation: spin 1s linear infinite; /* Бесконечное плавное вращение */
@@ -111,15 +119,14 @@ body, html {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 30px 40px; /* Сделали панель чуть просторнее */
-    background: rgba(0, 0, 0, 0.2); /* Слегка усилили контраст подложки биндов */
+    padding: 25px 40px;
+    background: rgba(0, 0, 0, 0.08); /* Чуть-чуть затемняем самый низ карточки */
 }
 
 /* Текст биндов */
 .card-bottom-bar span {
-    font-size: 12px; /* Чуть увеличили шрифт для читаемости */
+    font-size: 11px;
     font-weight: 700;
-    color: #a0aec0; /* Сделали текст биндов чуть ярче, чтобы он не терялся */
+    color: #7b8395;       /* Светло-серый цвет текста подсказок */
     letter-spacing: 0.2px;
-    white-space: nowrap; /* Запрещаем тексту бинда переноситься на новую строку */
 }
