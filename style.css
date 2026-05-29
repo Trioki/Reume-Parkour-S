@@ -31,21 +31,14 @@ body, html {
 /* Обновленная центральная карточка с блюром */
 .loading-card {
     position: relative;
-    width: 800px;         
-    height: 450px;        
-    
-    /* Твой новый полупрозрачный фон (последняя цифра 0.65 — это прозрачность) */
+    width: 800px;  
+	min-height: 480px;    /* Задаем минимальную высоту, меньше которой карточка не сожмется */
     background: rgba(27, 29, 38, 0.65);  
-    
-    /* Эффект размытия заднего плана */
     backdrop-filter: blur(12px);  
-    -webkit-backdrop-filter: blur(12px); /* Поддержка для старых версий браузеров */
-    
-    /* Тонкая, едва заметная рамка, подчеркивающая эффект стекла (как в оригинальном шаблоне) */
+    -webkit-backdrop-filter: blur(12px); 
     border: 1px solid rgba(255, 255, 255, 0.05); 
-
     border-radius: 24px;  
-    padding: 50px 50px 0 50px;
+    padding: 50px 50px 110px 50px; /* Увеличили нижний отступ (110px), чтобы бинды не наезжали на статус */
     text-align: center;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7); 
     z-index: 2;
@@ -57,12 +50,11 @@ body, html {
 
 /* Название сервера */
 #server-name {
-    font-size: 52px;
+    font-size: 48px;
     font-weight: 900;
     color: #4449a8;       /* Фирменный неоново-синий */
-    text-transform: lowercase;
     letter-spacing: -1px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 /* Описание внутри карточки */
@@ -119,14 +111,15 @@ body, html {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 25px 40px;
-    background: rgba(0, 0, 0, 0.08); /* Чуть-чуть затемняем самый низ карточки */
+	padding: 30px 40px; /* Сделали панель чуть просторнее */
+    background: rgba(0, 0, 0, 0.2); /* Слегка усилили контраст подложки биндов */
 }
 
 /* Текст биндов */
 .card-bottom-bar span {
-    font-size: 11px;
+	font-size: 12px; /* Чуть увеличили шрифт для читаемости */
     font-weight: 700;
     color: #7b8395;       /* Светло-серый цвет текста подсказок */
-    letter-spacing: 0.2px;
+	letter-spacing: 0.2px;
+    white-space: nowrap; /* Запрещаем тексту бинда переноситься на новую строку */
 }
