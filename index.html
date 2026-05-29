@@ -6,27 +6,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="background-overlay">
+<div class="background-overlay">
     <img src="img/picture.jpg" alt="Background">
-		</div>
-    <div class="loading-container">
-        <h1 id="server-name">Загрузка сервера...</h1>
-        <h3 id="map-name">Карта: определение...</h3>
+</div>
+
+<div class="loading-card">
         
-        <div class="spinner"></div>
+        <h1 id="server-name">Загрузка сервера</h1>
         
-        <div id="loading-status">Установление соединения...</div>
+        <p class="server-description">
+            Идейное продолжение сервера The Revolution Project - Русский Педобир от создателя HoloRu, который существовал с 2015 по 2020 год!
+        </p>
+
+        <div class="server-info-row">
+            <span id="player-count">Онлайн:</span>
+            <span id="map-name">Карта:</span>
+        </div>
+        
+        <div id="loading-status">Загрузка контента</div>
+
+        <div class="card-bottom-bar">
+            <span>Не забудь открыть F1</span>
+            <span>F4 — магазин</span>
+            <span>F6 — донат-магазин</span>
+            <span>N — подписка с ежед. наградой</span>
+        </div>
+        
     </div>
 
     <script>
-        // Функция автоматически вызывается игрой при подключении
         function GameDetails(servername, serverurl, mapname, maxplayers, steamid, gamemode) {
             document.getElementById('server-name').innerText = servername;
             document.getElementById('map-name').innerText = "Карта: " + mapname;
+            document.getElementById('player-count').innerText = "Онлайн: 0/" + maxplayers;
         }
 
-        // Функция автоматически обновляет статус (например: "Скачивание файлов...")
         function SetStatusChanged(status) {
             document.getElementById('loading-status').innerText = status;
         }
