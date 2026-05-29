@@ -1,91 +1,114 @@
-/* Обнуление базовых отступов */
+/* Базовые сбросы */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', 'Inter', 'Segoe UI', sans-serif;
 }
 
+/* Абсолютно черный/темный фон всего экрана */
 body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Фоновое изображение на весь экран */
-/* Контейнер для фона встает на слой 1 (выше body) */
-.background-overlay {
-    position: fixed;
+/* Немного проявляем фоновую картинку, чтобы было чему размываться за карточкой */
+.background-overlay img {
+	position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; 
+	z-index: 1; /* Картинка остается на нижнем слое */
+	pointer-events: none; /* Чтобы фон не мешал кликам, если они понадобятся */
+    filter: brightness(0.56); /* Слегка увеличили яркость с 0.05 до 0.15 */
 }
 
-.background-overlay img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.4); /* Теперь можно вернуть красивое затемнение */
-}
+/* Обновленная центральная карточка с блюром */
+.loading-card {
+    position: relative;
+    width: 800px;         
+    height: 450px;        
+    
+    /* Твой новый полупрозрачный фон (последняя цифра 0.65 — это прозрачность) */
+    background: rgba(27, 29, 38, 0.65);  
+    
+    /* Эффект размытия заднего плана */
+    backdrop-filter: blur(12px);  
+    -webkit-backdrop-filter: blur(12px); /* Поддержка для старых версий браузеров */
+    
+    /* Тонкая, едва заметная рамка, подчеркивающая эффект стекла (как в оригинальном шаблоне) */
+    border: 1px solid rgba(255, 255, 255, 0.05); 
 
-/* Контейнер с текстом встает на слой 2 (выше картинки) */
-.loading-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    border-radius: 24px;  
+    padding: 50px 50px 0 50px;
     text-align: center;
-    background: rgba(20, 20, 20, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px 60px;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    max-width: 90%;
-    width: 500px;
-    z-index: 2; /* Гарантирует, что текст и рамка будут поверх картинки */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7); 
+    z-index: 2;
+    overflow: hidden;     
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Стилизация текста */
+/* Название сервера */
 #server-name {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #4449a8; /* Акцентный цвет (можно изменить на любой) */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    font-size: 52px;
+    font-weight: 900;
+    color: #4d5ae5;       /* Фирменный неоново-синий */
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
 }
 
-#map-name {
+/* Описание внутри карточки */
+.server-description {
     font-size: 16px;
-    font-weight: 400;
-    color: #ccc;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #ffffff;
+    max-width: 650px;
     margin-bottom: 30px;
 }
 
+/* Строка Онлайн / Карта */
+.server-info-row {
+    display: flex;
+    gap: 140px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #565d6d;       /* Приглушенный серый */
+    margin-bottom: 35px;
+}
+
+/* Статус загрузки */
 #loading-status {
-    font-size: 14px;
-    color: #aaa;
-    letter-spacing: 0.5px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #4d5ae5;
+    text-transform: lowercase;
 }
 
-/* Круглая анимация загрузки (Спиннер) */
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid rgba(255, 255, 255, 0.1);
-    border-top-color: #4449a8; /* Цвет бегущей линии спиннера */
-    border-radius: 50%;
-    margin: 0 auto 25px auto;
-    animation: spin 1s linear infinite;
+/* Панель с биндами, прижатая к низу карточки */
+.card-bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 40px;
+    background: rgba(0, 0, 0, 0.08); /* Чуть-чуть затемняем самый низ карточки */
 }
 
-/* Логика вращения спиннера */
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+/* Текст биндов */
+.card-bottom-bar span {
+    font-size: 11px;
+    font-weight: 700;
+    color: #7b8395;       /* Светло-серый цвет текста подсказок */
+    letter-spacing: 0.2px;
 }
