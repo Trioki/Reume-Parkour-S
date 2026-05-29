@@ -1,0 +1,87 @@
+/* Обнуление базовых отступов */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #111;
+    color: #fff;
+}
+
+/* Фоновое изображение на весь экран */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Замените URL на прямую ссылку на вашу картинку */
+    background: url('https://i.imgur.com/3WLQ4gp.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    filter: brightness(0.4); /* Слегка затемняем фон для читаемости текста */
+    z-index: -1;
+}
+
+/* Центральный блок с эффектом размытия (Glassmorphism) */
+.loading-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(10px); /* Красивое размытие фона за панелью */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 60px;
+    border-radius: 16px; /* Округленные края */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+    width: 500px;
+}
+
+/* Стилизация текста */
+#server-name {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #ff9900; /* Акцентный цвет (можно изменить на любой) */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+#map-name {
+    font-size: 16px;
+    font-weight: 400;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+#loading-status {
+    font-size: 14px;
+    color: #aaa;
+    letter-spacing: 0.5px;
+}
+
+/* Круглая анимация загрузки (Спиннер) */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #ff9900; /* Цвет бегущей линии спиннера */
+    border-radius: 50%;
+    margin: 0 auto 25px auto;
+    animation: spin 1s linear infinite;
+}
+
+/* Логика вращения спиннера */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

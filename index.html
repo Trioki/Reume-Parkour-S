@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>GMod Loading Screen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="bg-music" src="https://example.com/your-music.mp3" autoplay loop></audio>
+
+    <div class="background-overlay"></div>
+
+    <div class="loading-container">
+        <h1 id="server-name">Загрузка сервера...</h1>
+        <h3 id="map-name">Карта: определение...</h3>
+        
+        <div class="spinner"></div>
+        
+        <div id="loading-status">Установление соединения...</div>
+    </div>
+
+    <script>
+        // Функция автоматически вызывается игрой при подключении
+        function GameDetails(servername, serverurl, mapname, maxplayers, steamid, gamemode) {
+            document.getElementById('server-name').innerText = servername;
+            document.getElementById('map-name').innerText = "Карта: " + mapname;
+        }
+
+        // Функция автоматически обновляет статус (например: "Скачивание файлов...")
+        function SetStatusChanged(status) {
+            document.getElementById('loading-status').innerText = status;
+        }
+    </script>
+</body>
+</html>
