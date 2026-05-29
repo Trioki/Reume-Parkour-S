@@ -86,13 +86,31 @@ body, html {
 }
 
 /* Статус загрузки */
+/* Круглая анимация загрузки (Спиннер) */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.05); /* Прозрачная основа круга */
+    border-top-color: #4d5ae5; /* Фирменный синий цвет бегущей линии */
+    border-radius: 50%;
+    margin-bottom: 20px; /* Отступ до текста loading-status */
+    animation: spin 1s linear infinite; /* Бесконечное плавное вращение */
+}
+
+/* Логика вращения спиннера */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Статус загрузки (убедись, что у него нет больших верхних отступов) */
 #loading-status {
     font-size: 20px;
     font-weight: 800;
     color: #4d5ae5;
     text-transform: lowercase;
 }
-
 /* Панель с биндами, прижатая к низу карточки */
 .card-bottom-bar {
     position: absolute;
