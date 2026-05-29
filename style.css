@@ -14,30 +14,24 @@ body, html {
 }
 
 /* Фоновое изображение на весь экран */
-/* Контейнер для фона */
+/* Контейнер для фона встает на слой 1 (выше body) */
 .background-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;   /* Растягиваем строго на всю ширину окна */
-    height: 100vh;  /* Растягиваем строго на всю высоту окна */
-    z-index: -100;  /* Прячем глубоко на задний план, под текст */
-    background-color: #111; 
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
 }
 
-/* Настройки самой картинки */
 .background-overlay img {
-    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Временно убираем фильтр brightness, чтобы проверить, появится ли картинка */
-    filter: none !important; 
+    filter: brightness(0.4); /* Теперь можно вернуть красивое затемнение */
 }
 
-/* Центральный блок с эффектом размытия (Glassmorphism) */
+/* Контейнер с текстом встает на слой 2 (выше картинки) */
 .loading-container {
     position: absolute;
     top: 50%;
@@ -45,14 +39,15 @@ body, html {
     transform: translate(-50%, -50%);
     text-align: center;
     background: rgba(20, 20, 20, 0.6);
-    backdrop-filter: blur(10px); /* Красивое размытие фона за панелью */
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 40px 60px;
-    border-radius: 16px; /* Округленные края */
+    border-radius: 16px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     max-width: 90%;
     width: 500px;
+    z-index: 2; /* Гарантирует, что текст и рамка будут поверх картинки */
 }
 
 /* Стилизация текста */
