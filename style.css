@@ -52,7 +52,7 @@ body, html {
 #server-name {
     font-size: 48px;
     font-weight: 900;
-    color: #4449a8;       /* Фирменный неоново-синий */
+    color: #5c64b8;       /* Фирменный неоново-синий */
     letter-spacing: -1px;
     margin-bottom: 25px;
 }
@@ -94,7 +94,7 @@ body, html {
     position: absolute;
     height: 100%;
     width: 50%;                   /* Длина бегущего ползунка */
-    background: #4449a8;          /* Твой фирменный синий цвет */
+    background: #5c64b8;          /* Твой фирменный синий цвет */
     border-radius: 10px;
     box-shadow: 0 0 10px #4d5ae5; /* Легкое неоновое свечение */
     animation: loading-bar 1.6s ease-in-out infinite; /* Движение туда-сюда */
@@ -117,7 +117,7 @@ body, html {
 #loading-status {
     font-size: 20px;
     font-weight: 800;
-    color: #4d5ae5;
+    color: #5c64b8;
     text-transform: lowercase;
 }
 /* Панель с биндами, прижатая к низу карточки */
