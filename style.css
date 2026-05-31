@@ -96,7 +96,7 @@ body, html {
     width: 50%;                   /* Длина бегущего ползунка */
     background: #5c64b8;          /* Твой фирменный синий цвет */
     border-radius: 10px;
-    box-shadow: 0 0 10px #4d5ae5; /* Легкое неоновое свечение */
+    box-shadow: 0 0 10px #5c64b8; /* Легкое неоновое свечение */
     animation: loading-bar 1.6s ease-in-out infinite; /* Движение туда-сюда */
 }
 
